@@ -93,7 +93,8 @@ def saluta():
 # nimic: doar returnează numărul obținut.
 def celsius_in_fahrenheit(c):
     # Returneaza temperatura in Fahrenheit.  F = C * 9/5 + 32
-    pass
+    return (c * 9/5) + 32
+
 
 # --- Sarcina 3: Liste -------------------------------------------------------
 # Scrie funcția cele_mai_mari_trei(numere). Ea primește o listă de
@@ -103,10 +104,9 @@ def celsius_in_fahrenheit(c):
 # elementele ei, tot în ordine descrescătoare. Lista primită nu trebuie
 # stricată.
 def cele_mai_mari_trei(numere):
-    # Returneaza o lista cu cele mai mari trei numere, descrescator.
-    # Daca lista are mai putin de trei elemente, le returneaza pe toate.
-    pass
-
+    return sorted(numere, reverse=True)[:3]
+   lista_numere=[34,423,653,234]
+cele_mai_mari_trei=max(numere)
 # --- Sarcina 4: Operatori de bază și tupluri --------------------------------
 # Scrie funcția cat_si_rest(a, b). Ea primește două numere întregi.
 # Trebuie să returneze un tuplu cu două valori: pe prima poziție câtul
