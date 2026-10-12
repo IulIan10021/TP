@@ -1,0 +1,202 @@
+REZULTATE EXCLUSIV DEMONSTRATIVE
+
+python3 probe/pregateste_demo.py
+Probe DEMONSTRATIVE generate; pentru predare foloseste probele originale.
+
+python3 -m unittest discover -s teste -v
+test_base64 (test_decode.TestLaborator.test_base64) ... ok
+test_gps (test_decode.TestLaborator.test_gps) ... ok
+test_hash (test_decode.TestLaborator.test_hash) ... ok
+test_stego (test_decode.TestLaborator.test_stego) ... ok
+test_straturi (test_decode.TestLaborator.test_straturi) ... ok
+test_url (test_decode.TestLaborator.test_url) ... ok
+test_xor (test_decode.TestLaborator.test_xor) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.045s
+
+OK
+
+python3 arsenal/forensics/decode.py probe/mesaj.txt --fisier
+{
+  "strat": [
+    "base64",
+    "hex",
+    "url"
+  ],
+  "rezultat": "FLAG{straturi_demo}",
+  "hex": "464c41477b73747261747572695f64656d6f7d"
+}
+
+python3 arsenal/forensics/decode.py probe/xor.bin --fisier --mod xor --iesire rezultate/xor.json
+{
+  "strat": "xor",
+  "candidati": [
+    {
+      "cheie": 42,
+      "rezultat": "The secret message is FLAG{xor_demo}.",
+      "scor": 644
+    },
+    {
+      "cheie": 43,
+      "rezultat": "Uid!rdbsdu!ldrr`fd!hr!GM@Fzyns^edln|/",
+      "scor": 401
+    },
+    {
+      "cheie": 44,
+      "rezultat": "Rnc&ucetcr&kcuugac&ou&@JGA}~itYbcki{(",
+      "scor": 390
+    },
+    {
+      "cheie": 32,
+      "rezultat": "^bo*yoixo~*goyykmo*cy*LFKMqrexUnogew$",
+      "scor": 386
+    },
+    {
+      "cheie": 59,
+      "rezultat": "Eyt1btrcte1|tbbpvt1xb1W]PVji~cNut|~l?",
+      "scor": 361
+    },
+    {
+      "cheie": 35,
+      "rezultat": "]al)zlj{l})dlzzhnl)`z)OEHNrqf{Vmldft'",
+      "scor": 332
+    },
+    {
+      "cheie": 63,
+      "rezultat": "A}p5fpvgpa5xpfftrp5|f5SYTRnmzgJqpxzh;",
+      "scor": 317
+    },
+    {
+      "cheie": 34,
+      "rezultat": "\\`m({mkzm|(em{{iom(a{(NDIOspgzWlmegu&",
+      "scor": 312
+    },
+    {
+      "cheie": 55,
+      "rezultat": "Iux=nx~oxi=pxnn|zx=tn=[Q\\ZferoByxpr`3",
+      "scor": 290
+    },
+    {
+      "cheie": 36,
+      "rezultat": "Zfk.}km|kz.ck}}oik.g}.HBOIuva|Qjkcas ",
+      "scor": 282
+    },
+    {
+      "cheie": 41,
+      "rezultat": "Wkf#pf`qfw#nfppbdf#jp#EOBDx{lq\\gfnl~-",
+      "scor": 279
+    },
+    {
+      "cheie": 57,
+      "rezultat": "G{v3`vpavg3~v``rtv3z`3U_RThk|aLwv~|n=",
+      "scor": 216
+    },
+    {
+      "cheie": 62,
+      "rezultat": "@|q4gqwfq`4yqggusq4}g4RXUSol{fKpqy{i:",
+      "scor": 207
+    },
+    {
+      "cheie": 47,
+      "rezultat": "Qm`%v`fw`q%h`vvdb`%lv%CIDB~}jwZa`hjx+",
+      "scor": 193
+    },
+    {
+      "cheie": 53,
+      "rezultat": "Kwz?lz|mzk?rzll~xz?vl?YS^Xdgpm@{zrpb1",
+      "scor": 193
+    },
+    {
+      "cheie": 37,
+      "rezultat": "[gj/|jl}j{/bj||nhj/f|/ICNHtw`}Pkjb`r!",
+      "scor": 181
+    },
+    {
+      "cheie": 51,
+      "rezultat": "Mq|9j|zk|m9t|jjx~|9pj9_UX^bavkF}|tvd7",
+      "scor": 135
+    }
+  ],
+  "observatie": "Scorul este euristic; verifica textul si cheia."
+}
+
+python3 arsenal/forensics/decode.py probe/hashuri.txt --fisier --mod hash --iesire rezultate/hashuri.json
+{
+  "strat": "hash",
+  "rezultat": [
+    {
+      "algoritm": "md5",
+      "hash": "6028e1961ae4b0e9de0e482a34a80b9d",
+      "parola": "student265"
+    },
+    {
+      "algoritm": "sha1",
+      "hash": "b28f38ece4c83c7d33522a6702a16e3d3aa1d1aa",
+      "parola": "student265"
+    },
+    {
+      "algoritm": "sha256",
+      "hash": "887cee2373657e7e168993b841859890950a58b736f62c59f68f7c8893e61ae9",
+      "parola": "student265"
+    }
+  ]
+}
+
+python3 forensics.py probe/foto.jpg
+{
+  "tip": "jpeg",
+  "text": [
+    "JFIF",
+    "Exif",
+    "Camera demonstrativa",
+    "Colta Iulian",
+    " $.' \",#",
+    "(7),01444",
+    "'9=82<.342",
+    "!22222222222222222222222222222222222222222222222222",
+    "$3br",
+    "%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz",
+    "&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz"
+  ],
+  "metadate": {
+    "Artist": "Colta Iulian",
+    "Make": "Camera demonstrativa",
+    "GPS": {
+      "GPSLatitudeRef": "N",
+      "GPSLatitude": "(47.0, 0.0, 0.0)",
+      "GPSLongitudeRef": "E",
+      "GPSLongitude": "(28.0, 50.0, 0.0)"
+    },
+    "latitudine": 47.0,
+    "longitudine": 28.833333333333332
+  }
+}
+
+python3 forensics.py probe/ascuns.png --arhiva gasit.zip --extrage-in extras
+{
+  "tip": "png",
+  "text": [
+    "IHDR",
+    "/IDATx",
+    "IEND",
+    "secret.txts",
+    "secret.txtPK"
+  ],
+  "metadate": {
+    "GPS": {}
+  },
+  "carving": {
+    "offset": 360,
+    "arhiva": "gasit.zip",
+    "fisiere": [
+      "secret.txt"
+    ]
+  }
+}
+
+python3 stego.py ascunde probe/foto.jpg FLAG{ascuns_in_pixeli} stego.png
+Mesaj salvat in stego.png
+
+python3 stego.py dezvaluie stego.png
+FLAG{ascuns_in_pixeli}
