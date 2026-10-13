@@ -6,7 +6,7 @@ import zipfile
 from pathlib import Path
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
-
+from typing import Any
 
 # Itemul 8
 def tip_real(cale):

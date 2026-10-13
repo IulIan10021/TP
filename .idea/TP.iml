@@ -5,6 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/Lab_4_TP_Colta_Iulian_SI-265/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/web_lab/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Laborator_5/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Examen/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="~/Desktop/TP/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
