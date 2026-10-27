@@ -9,7 +9,7 @@
   ],
   [
     "Pull: schimbare facuta din a doua copie locala",
-    "$ git add README.md\n$ git commit -m Update README.md\n[main d5ebe4b] Update README.md\n 1 file changed, 1 insertion(+)\n$ git push\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-local.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to '/Users/mac/Desktop/L6_exercitii_locale/origin-local.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n$ git pull\nAlready up to date.\n$ cat README.md\n# exercitiu-git\n"
+    "$ git pull --rebase\nFrom /Users/mac/Desktop/L6_exercitii_locale/origin-local\n   8b84bed..249156c  main       -> origin/main\nRebasing (1/1)\nSuccessfully rebased and updated refs/heads/main.\n$ git push\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-local.git\n   249156c..8f18e46  main -> main\n$ git pull\nFrom /Users/mac/Desktop/L6_exercitii_locale/origin-local\n   249156c..8f18e46  main       -> origin/main\nUpdating 249156c..8f18e46\nFast-forward\n README.md | 1 +\n 1 file changed, 1 insertion(+)\n$ cat README.md\n# exercitiu-git\nAici exersez git.\n"
   ],
   [
     "Ignorarea mediului virtual",
@@ -17,7 +17,7 @@
   ],
   [
     "Istoric, diff si restore",
-    "$ git log --oneline\n249156c Ignor mediul virtual\n99aeb3e Adaug salut.py\n8b84bed Initial commit\n$ git diff\ndiff --git a/salut.py b/salut.py\nindex e700475..b7c6a14 100644\n--- a/salut.py\n+++ b/salut.py\n@@ -1 +1,2 @@\n print(\"Salut, GitHub!\")\n+print(\"al doilea\")\n$ git restore salut.py\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n"
+    "$ git log --oneline\n8f18e46 Update README.md\n249156c Ignor mediul virtual\n99aeb3e Adaug salut.py\n8b84bed Initial commit\n$ git diff\ndiff --git a/salut.py b/salut.py\nindex e700475..b7c6a14 100644\n--- a/salut.py\n+++ b/salut.py\n@@ -1 +1,2 @@\n print(\"Salut, GitHub!\")\n+print(\"al doilea\")\n$ git restore salut.py\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n"
   ],
   [
     "Al doilea depozit: init si push -u local",

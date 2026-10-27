@@ -1,6 +1,7 @@
 Istoric, diff si restore
 
 $ git log --oneline
+8f18e46 Update README.md
 249156c Ignor mediul virtual
 99aeb3e Adaug salut.py
 8b84bed Initial commit
