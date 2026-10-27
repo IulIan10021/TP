@@ -1,4 +1,0 @@
-Publicarea pe GitHub: blocata de conexiune
-
-$ git -C /Users/mac/Desktop/TP push
-fatal: unable to access 'https://github.com/IulIan10021/TP.git/': Could not resolve host: github.com
