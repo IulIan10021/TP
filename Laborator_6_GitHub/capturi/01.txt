@@ -1,0 +1,14 @@
+Configurare si clonare locala
+
+$ git --version
+git version 2.51.0
+$ git clone /Users/mac/Desktop/L6_exercitii_locale/origin-local.git exercitiu-git
+Cloning into 'exercitiu-git'...
+done.
+$ git config user.name Colta Iulian
+$ git config user.email 134854600+IulIan10021@users.noreply.github.com
+$ git config pull.rebase false
+$ git config --get user.name
+Colta Iulian
+$ git config --get user.email
+134854600+IulIan10021@users.noreply.github.com

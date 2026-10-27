@@ -1,0 +1,16 @@
+Add, commit si push spre origin local
+
+$ python3 salut.py
+Salut, GitHub!
+$ git status --short
+?? salut.py
+$ git add salut.py
+$ git status --short
+A  salut.py
+$ git commit -m Adaug salut.py
+[main 99aeb3e] Adaug salut.py
+ 1 file changed, 1 insertion(+)
+ create mode 100644 salut.py
+$ git push
+To /Users/mac/Desktop/L6_exercitii_locale/origin-local.git
+   8b84bed..99aeb3e  main -> main

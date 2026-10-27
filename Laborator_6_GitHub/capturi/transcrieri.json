@@ -1,0 +1,30 @@
+[
+  [
+    "Configurare si clonare locala",
+    "$ git --version\ngit version 2.51.0\n$ git clone /Users/mac/Desktop/L6_exercitii_locale/origin-local.git exercitiu-git\nCloning into 'exercitiu-git'...\ndone.\n$ git config user.name Colta Iulian\n$ git config user.email 134854600+IulIan10021@users.noreply.github.com\n$ git config pull.rebase false\n$ git config --get user.name\nColta Iulian\n$ git config --get user.email\n134854600+IulIan10021@users.noreply.github.com\n"
+  ],
+  [
+    "Add, commit si push spre origin local",
+    "$ python3 salut.py\nSalut, GitHub!\n$ git status --short\n?? salut.py\n$ git add salut.py\n$ git status --short\nA  salut.py\n$ git commit -m Adaug salut.py\n[main 99aeb3e] Adaug salut.py\n 1 file changed, 1 insertion(+)\n create mode 100644 salut.py\n$ git push\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-local.git\n   8b84bed..99aeb3e  main -> main\n"
+  ],
+  [
+    "Pull: schimbare facuta din a doua copie locala",
+    "$ git add README.md\n$ git commit -m Update README.md\n[main d5ebe4b] Update README.md\n 1 file changed, 1 insertion(+)\n$ git push\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-local.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to '/Users/mac/Desktop/L6_exercitii_locale/origin-local.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n$ git pull\nAlready up to date.\n$ cat README.md\n# exercitiu-git\n"
+  ],
+  [
+    "Ignorarea mediului virtual",
+    "$ python3 -m venv .venv\n$ git status --short\n$ git status --short\n?? .gitignore\n$ git check-ignore .venv/\n.venv/\n$ git add .gitignore\n$ git commit -m Ignor mediul virtual\n[main 249156c] Ignor mediul virtual\n 1 file changed, 2 insertions(+)\n create mode 100644 .gitignore\n$ git push\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-local.git\n   99aeb3e..249156c  main -> main\n"
+  ],
+  [
+    "Istoric, diff si restore",
+    "$ git log --oneline\n249156c Ignor mediul virtual\n99aeb3e Adaug salut.py\n8b84bed Initial commit\n$ git diff\ndiff --git a/salut.py b/salut.py\nindex e700475..b7c6a14 100644\n--- a/salut.py\n+++ b/salut.py\n@@ -1 +1,2 @@\n print(\"Salut, GitHub!\")\n+print(\"al doilea\")\n$ git restore salut.py\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean\n"
+  ],
+  [
+    "Al doilea depozit: init si push -u local",
+    "$ git init -b main\nInitialized empty Git repository in /Users/mac/Desktop/L6_exercitii_locale/exercitiu-2/.git/\n$ git add README.md\n$ git commit -m Primul commit\n[main (root-commit) 3164630] Primul commit\n 1 file changed, 1 insertion(+)\n create mode 100644 README.md\n$ git init --bare origin-2-local.git\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /Users/mac/Desktop/L6_exercitii_locale/origin-2-local.git/\n$ git remote add origin /Users/mac/Desktop/L6_exercitii_locale/origin-2-local.git\n$ git push -u origin main\nTo /Users/mac/Desktop/L6_exercitii_locale/origin-2-local.git\n * [new branch]      main -> main\nbranch 'main' set up to track 'origin/main'.\n"
+  ],
+  [
+    "Publicarea pe GitHub: blocata de conexiune",
+    "$ git -C /Users/mac/Desktop/TP push\nfatal: unable to access 'https://github.com/IulIan10021/TP.git/': Could not resolve host: github.com\n"
+  ]
+]
