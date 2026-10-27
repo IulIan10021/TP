@@ -21,14 +21,14 @@ Comandă: gh auth login -h github.com
 
 ## A2. CONFIGURAREA GIT
 
-Am verificat Git și identitatea disponibilă. Exercițiile folosesc identitatea locală Colta Iulian și adresa noreply a contului. Configurarea identității stabilește autorul commit-urilor; autentificarea GitHub se face separat.
+Am verificat Git și am configurat global numele Colta Iulian, adresa noreply existentă a contului, init.defaultBranch=main și pull.rebase=false. Exercițiile locale folosesc aceeași identitate. Configurarea identității stabilește autorul commit-urilor; autentificarea GitHub se face separat.
 Comenzi:
 git --version
-git config user.name "Colta Iulian"
-git config user.email "134854600+IulIan10021@users.noreply.github.com"
-git config init.defaultBranch main
-git config pull.rebase false
-git config --local --list
+git config --global user.name "Colta Iulian"
+git config --global user.email "134854600+IulIan10021@users.noreply.github.com"
+git config --global init.defaultBranch main
+git config --global pull.rebase false
+git config --global --list
 
 ## A3. PRIMUL DEPOZIT
 
@@ -164,7 +164,7 @@ Am exersat local configurarea Git, clonarea, salvarea versiunilor, transferul î
 
 ## SURSE
 
-Fișa L6_Laborator_GitHub_pas_cu_pas.docx și documentul Word existent. Imaginile din partea inițială sunt redări ale transcrierilor de terminal, nu capturi ale depozitelor publicate pe GitHub.
+Fișa originală: L6_Laborator_GitHub_pas_cu_pas.docx. Model de formatare: raportul laboratorului 1. Am folosit Codex pentru organizarea documentelor, verificarea comenzilor și redactare. Imaginile păstrate în Word sunt redări ale transcrierilor de terminal, nu capturi ale depozitelor publicate pe GitHub. Folderul separat cu imagini a fost eliminat; istoriile originale sunt păstrate în fișierele bundle.
 
 ## DESCHIDEREA RAPORTULUI ÎN TERMINAL
 
@@ -176,3 +176,28 @@ cat Laborator_6_GitHub/L6_TP_Colta_Iulian_SI-265.md
 ```
 
 Rularea directă a căii fișierului poate produce `zsh: permission denied`. Nu este necesară schimbarea permisiunilor de execuție.
+
+## VERIFICARE DUPĂ FIȘA ORIGINALĂ — 27.10.2026
+
+| Criteriu din barem | Punctaj maxim | Dovezi și stare |
+| --- | --- | --- |
+| Configurare | 2 | Git configurat global; autentificarea GitHub nu este confirmată. |
+| exercitiu-git | 3 | README.md, salut.py, .gitignore și patru commit-uri există local; publicarea rămâne de efectuat. |
+| exercitiu-2 | 2 | Inițializare locală și primul commit păstrate; publicarea rămâne de efectuat. |
+| Raport și predare | 1 | Numele și folderul raportului sunt corecte; linkurile, push-ul și accesul profesorului nu sunt confirmate. |
+| Înțelegere și onestitate | 2 | Sursele și ajutorul sunt menționate. Explicarea comenzilor se verifică personal la susținere. |
+
+Conexiunea la GitHub a fost verificată din nou: `curl -I https://github.com` a returnat `Could not resolve host: github.com`. Autentificarea prin `gh auth login` nu a putut începe din cauza conexiunii. Acest blocaj nu este o problemă de permisiuni a raportului Markdown.
+
+### Explicații pentru susținere
+
+- `git status` arată fișierele modificate și ce este pregătit pentru commit.
+- `git add` pregătește conținutul; `git commit` îl salvează în istoricul local.
+- `git push` trimite commit-uri; `git pull` preia și integrează schimbări.
+- `.gitignore` exclude fișierele generate care nu sunt deja urmărite.
+- `git diff` arată schimbările nesalvate în zona de pregătire; `git log --oneline` arată istoricul.
+- `git restore salut.py` elimină modificările nesalvate din acel fișier.
+- `git init` creează un depozit local, iar `git clone` copiază un depozit existent.
+- `git push -u origin main` trimite ramura și configurează ramura urmărită.
+
+Istoric verificat: `8b84bed Initial commit`, `99aeb3e Adaug salut.py`, `249156c Ignor mediul virtual`, `8f18e46 Update README.md`; în al doilea depozit: `3164630 Primul commit`. În exercițiul local, actualizarea README a fost făcută după salvarea regulilor de ignorare, spre deosebire de ordinea din exemplul fișei.
