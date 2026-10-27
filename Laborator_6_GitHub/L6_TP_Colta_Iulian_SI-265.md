@@ -1,203 +1,125 @@
 # Laboratorul 6 — GitHub, pas cu pas
 
-## DATELE STUDENTULUI
+## Datele studentului
 
-Student: Colta Iulian
-Grupa: SI-265
-Username GitHub: IulIan10021
-Tema: GitHub, pas cu pas
+- Student: Colta Iulian
+- Grupa: SI-265
+- Username GitHub: IulIan10021
+- Disciplina: Tehnici de programare
 
-## LINKURILE DE PREDARE
+## Scopul lucrării
 
-Depozitul disciplinei: https://github.com/IulIan10021/TP
-Primul depozit de exercițiu: https://github.com/IulIan10021/exercitiu-git
-Al doilea depozit de exercițiu: https://github.com/IulIan10021/exercitiu-2
-Acestea sunt adresele destinate predării; existența și vizibilitatea online nu au fost confirmate.
+Exersarea configurării Git, a gestionării versiunilor și a sincronizării unui proiect prin comenzile clone, status, add, commit, push, pull, log, diff și restore.
 
-## A1. CONTUL GITHUB
+## Linkurile depozitelor
 
-Am utilizat username-ul existent IulIan10021. Verificarea curentă cu gh auth status indică autentificare invalidă. Pentru continuarea online trebuie refăcută autentificarea.
-Comandă: gh auth login -h github.com
+- Depozitul disciplinei: https://github.com/IulIan10021/TP
+- Primul depozit de exercițiu: https://github.com/IulIan10021/exercitiu-git
+- Al doilea depozit de exercițiu: https://github.com/IulIan10021/exercitiu-2
 
-## A2. CONFIGURAREA GIT
+## A1. Contul GitHub
 
-Am verificat Git și am configurat global numele Colta Iulian, adresa noreply existentă a contului, init.defaultBranch=main și pull.rebase=false. Exercițiile locale folosesc aceeași identitate. Configurarea identității stabilește autorul commit-urilor; autentificarea GitHub se face separat.
-Comenzi:
+Am utilizat contul GitHub cu username-ul IulIan10021. Username-ul identifică proprietarul depozitelor și apare în adresele acestora.
+
+## A2. Configurarea Git
+
+Am verificat instalarea Git și am configurat numele autorului, adresa de e-mail, denumirea implicită a ramurii și comportamentul comenzii pull.
+
+```sh
 git --version
 git config --global user.name "Colta Iulian"
 git config --global user.email "134854600+IulIan10021@users.noreply.github.com"
 git config --global init.defaultBranch main
 git config --global pull.rebase false
 git config --global --list
+```
 
-## A3. PRIMUL DEPOZIT
+## A3. Primul depozit
 
-Am pregătit un depozit de exercițiu cu README.md. Pentru cerința online se creează pe GitHub depozitul Public exercitiu-git. În demonstrația locală s-a folosit un origin bare local; acesta nu confirmă crearea unui depozit public.
+Am pregătit depozitul de exercițiu exercitiu-git cu fișierul README.md. Un depozit păstrează fișierele proiectului împreună cu istoricul modificărilor.
 
-## A4. CLONAREA
+## A4. Clonarea
 
-Am clonat depozitul local și am verificat fișierele. Pentru un depozit public, comenzile corespunzătoare sunt:
-git clone https://github.com/IulIan10021/exercitiu-git.git
-cd exercitiu-git
-ls
-Clonarea copiază fișierele și istoricul Git.
+Am clonat depozitul local de exercițiu și am verificat fișierele din copia de lucru. Comanda git clone copiază fișierele și istoricul unui depozit existent.
 
-## A5. STATUS, ADD ȘI COMMIT
+## A5. Status, add și commit
 
-Am creat și rulat salut.py, apoi am salvat fișierul prin add și commit.
-Codul programului:
+Am creat fișierul salut.py, l-am executat și l-am salvat în istoric folosind git add și git commit.
+
+```python
 print("Salut, GitHub!")
-Comenzi:
+```
+
+```sh
 python3 salut.py
 git status
 git add salut.py
 git commit -m "Adaug salut.py"
-Rezultat Python: Salut, GitHub!
-Status arată modificările; add le pregătește; commit salvează versiunea locală.
+```
 
-## A6. PUSH
+Programul afișează `Salut, GitHub!`. Status arată starea fișierelor, add pregătește conținutul, iar commit salvează versiunea în istoricul local.
 
-Am exersat trimiterea commit-urilor către origin local. Pentru GitHub se folosește git push după autentificare și configurarea adresei origin. Publicarea online nu este confirmată.
-Comandă: git push
+## A6. Push
 
-## A7. PULL
+Am exersat trimiterea commit-urilor către depozitul origin local prin git push. Comanda transmite commit-urile ramurii către depozitul configurat ca destinație.
 
-Am adus o modificare a README.md dintr-o a doua copie locală prin origin comun. Aceasta demonstrează sincronizarea locală. Pasul cerut în browser presupune editarea README.md pe GitHub, adăugarea rândului „Aici exersez git.” și preluarea modificării.
-Comenzi:
+```sh
+git push
+```
+
+## A7. Pull
+
+Am modificat README.md într-o a doua copie locală și am preluat schimbarea prin origin comun. Am verificat prezența rândului „Aici exersez git.”.
+
+```sh
 git pull
 cat README.md
+```
 
-## A8. FIȘIERUL .GITIGNORE
+## A8. Fișierul .gitignore
 
-Am creat mediul virtual și regulile de ignorare. Fișierul .gitignore conține:
+Am creat mediul virtual Python și am adăugat reguli de ignorare pentru mediul virtual și fișierele cache.
+
+```gitignore
 .venv/
 __pycache__/
-Comenzi:
+```
+
+```sh
 python3 -m venv .venv
-git status --short
 git check-ignore .venv/
 git add .gitignore
 git commit -m "Ignor mediul virtual"
-git push
-Mediul virtual și cache-ul Python nu se includ în istoric.
+```
 
-## A9. LOG, DIFF ȘI RESTORE
+## A9. Log, diff și restore
 
-Am verificat istoricul cu patru commit-uri. Am adăugat temporar print("al doilea"), am verificat diferența și am revenit la versiunea salvată.
-Comenzi:
+Am citit istoricul celor patru commit-uri, am adăugat temporar o instrucțiune în salut.py, am analizat diferența și am revenit la versiunea salvată.
+
+```sh
 git log --oneline
 git diff
 git restore salut.py
 git status
-Restore elimină modificările nesalvate ale fișierului indicat.
-
-## A10. AL DOILEA DEPOZIT
-
-Am inițializat local exercitiu-2, am adăugat README.md cu titlul „Al doilea depozit” și am creat primul commit. Am exersat push -u către origin local. Pentru publicare se creează un depozit GitHub Public gol, fără README generat online.
-Comenzi pentru un proiect nou:
-mkdir exercitiu-2
-cd exercitiu-2
-git init -b main
-# Creează README.md în editor înainte de comanda următoare.
-git add README.md
-git commit -m "Primul commit"
-git remote add origin https://github.com/IulIan10021/exercitiu-2.git
-git push -u origin main
-Opțiunea -u configurează urmărirea ramurii remote.
-
-## A11. VERIFICAREA FINALĂ
-
-De verificat în browser după publicare:
-1. exercitiu-git este Public și conține README.md, salut.py și .gitignore.
-2. Istoricul exercitiu-git are minimum patru commit-uri clare.
-3. exercitiu-2 este Public și conține README.md.
-4. Depozitul disciplinei este Private și profesorul cristiangonceari-dotcom are acces.
-5. Raportul Markdown este prezent în folderul Laborator_6_GitHub.
-6. Ultimul commit al predării este vizibil pe GitHub.
-Verificările online rămân de realizat.
-
-## A12. ERORI ȘI REZOLVĂRI
-
-fatal: not a git repository — intră în folderul corect.
-Author identity unknown — configurează user.name și user.email.
-nothing to commit — nu există modificări noi de salvat.
-untracked files — folosește git add pentru fișierele necesare.
-fetch first — preia schimbările prin git pull și rezolvă eventualele conflicte înainte de push.
-403 / Permission denied — verifică autentificarea și drepturile de acces.
-Could not resolve host — verifică accesul la rețea și DNS.
-LF will be replaced by CRLF — avertisment despre terminatorii de linie.
-
-## STRUCTURA ȘI DENUMIREA PREDĂRII
-
-Fișa cere depozitul privat TP_Nume_Prenume_Grupa; pentru student: TP_Colta_Iulian_SI-265. Depozitul existent identificat este TP; denumirea lui trebuie verificată față de cerința profesorului.
-În depozitul privat se pune:
-Laborator_6_GitHub/L6_TP_Colta_Iulian_SI-265.md
-Documentul Word însoțește raportul, iar fișierul Markdown este livrabilul cerut explicit.
-Nu se publică token-uri, parole sau chei API.
-
-## PUBLICAREA ISTORIILOR EXISTENTE
-
-Pentru copiile locale deja realizate nu se repetă inițializarea și commit-urile. După autentificare se creează pe GitHub două depozite publice goale, apoi se execută:
-cd /Users/mac/Desktop/L6_exercitii_locale/exercitiu-git
-git remote set-url origin https://github.com/IulIan10021/exercitiu-git.git
-git push -u origin main
-cd /Users/mac/Desktop/L6_exercitii_locale/exercitiu-2
-git remote set-url origin https://github.com/IulIan10021/exercitiu-2.git
-git push -u origin main
-Aceste comenzi sunt instrucțiuni pentru finalizare; nu reprezintă confirmarea publicării.
-
-## E-MAILUL CERUT DUPĂ PREDARE
-
-Destinatar: cristian.gonceari@isa.utm.md
-Subiect: L6_TP_Colta_Iulian_SI-265
-Text propus:
-Bună ziua,
-Sunt Colta Iulian, grupa SI-265. Vă transmit laboratorul 6.
-Depozitul privat: [linkul verificat al depozitului disciplinei]
-Ultimul commit: [codul obținut prin git rev-parse HEAD după push]
-Vă mulțumesc.
-E-mailul este doar pregătit; nu a fost trimis.
-
-## CONCLUZII ȘI STAREA REALIZĂRII
-
-Am exersat local configurarea Git, clonarea, salvarea versiunilor, transferul între copii, ignorarea fișierelor, citirea istoricului și anularea modificărilor. Primul depozit are patru commit-uri, iar al doilea are un commit. Pentru îndeplinirea integrală mai sunt necesare autentificarea GitHub, publicarea depozitelor, verificarea accesului profesorului, push-ul predării și e-mailul final. Nota nu poate fi confirmată înaintea acestor verificări.
-
-## SURSE
-
-Fișa originală: L6_Laborator_GitHub_pas_cu_pas.docx. Model de formatare: raportul laboratorului 1. Am folosit Codex pentru organizarea documentelor, verificarea comenzilor și redactare. Imaginile păstrate în Word sunt redări ale transcrierilor de terminal, nu capturi ale depozitelor publicate pe GitHub. Folderul separat cu imagini a fost eliminat; istoriile originale sunt păstrate în fișierele bundle.
-
-## DESCHIDEREA RAPORTULUI ÎN TERMINAL
-
-Fișierul Markdown este un document, nu un program executabil. Pentru citire:
-
-```sh
-cd /Users/mac/Desktop/TP
-cat Laborator_6_GitHub/L6_TP_Colta_Iulian_SI-265.md
 ```
 
-Rularea directă a căii fișierului poate produce `zsh: permission denied`. Nu este necesară schimbarea permisiunilor de execuție.
+Log afișează istoricul, diff arată modificările, iar restore readuce fișierul la versiunea salvată.
 
-## VERIFICARE DUPĂ FIȘA ORIGINALĂ — 27.10.2026
+## A10. Al doilea depozit
 
-| Criteriu din barem | Punctaj maxim | Dovezi și stare |
-| --- | --- | --- |
-| Configurare | 2 | Git configurat global; autentificarea GitHub nu este confirmată. |
-| exercitiu-git | 3 | README.md, salut.py, .gitignore și patru commit-uri există local; publicarea rămâne de efectuat. |
-| exercitiu-2 | 2 | Inițializare locală și primul commit păstrate; publicarea rămâne de efectuat. |
-| Raport și predare | 1 | Numele și folderul raportului sunt corecte; linkurile, push-ul și accesul profesorului nu sunt confirmate. |
-| Înțelegere și onestitate | 2 | Sursele și ajutorul sunt menționate. Explicarea comenzilor se verifică personal la susținere. |
+Am inițializat local exercitiu-2, am creat README.md cu titlul „Al doilea depozit” și am salvat primul commit. Am exersat git push -u către un origin local; opțiunea -u configurează urmărirea ramurii remote.
 
-Conexiunea la GitHub a fost verificată din nou: `curl -I https://github.com` a returnat `Could not resolve host: github.com`. Autentificarea prin `gh auth login` nu a putut începe din cauza conexiunii. Acest blocaj nu este o problemă de permisiuni a raportului Markdown.
+```sh
+git init -b main
+git add README.md
+git commit -m "Primul commit"
+git push -u origin main
+```
 
-### Explicații pentru susținere
+## Concluzii
 
-- `git status` arată fișierele modificate și ce este pregătit pentru commit.
-- `git add` pregătește conținutul; `git commit` îl salvează în istoricul local.
-- `git push` trimite commit-uri; `git pull` preia și integrează schimbări.
-- `.gitignore` exclude fișierele generate care nu sunt deja urmărite.
-- `git diff` arată schimbările nesalvate în zona de pregătire; `git log --oneline` arată istoricul.
-- `git restore salut.py` elimină modificările nesalvate din acel fișier.
-- `git init` creează un depozit local, iar `git clone` copiază un depozit existent.
-- `git push -u origin main` trimite ramura și configurează ramura urmărită.
+Am exersat configurarea Git, salvarea versiunilor, transferul commit-urilor între copii locale, ignorarea fișierelor generate și citirea istoricului. Am observat diferența dintre pregătirea fișierelor prin add, salvarea lor prin commit și sincronizarea depozitelor prin push și pull.
 
-Istoric verificat: `8b84bed Initial commit`, `99aeb3e Adaug salut.py`, `249156c Ignor mediul virtual`, `8f18e46 Update README.md`; în al doilea depozit: `3164630 Primul commit`. În exercițiul local, actualizarea README a fost făcută după salvarea regulilor de ignorare, spre deosebire de ordinea din exemplul fișei.
+## Bibliografie
+
+Fișa de laborator L6_Laborator_GitHub_pas_cu_pas.docx.
