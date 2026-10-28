@@ -59,4 +59,4 @@ Am exersat salvarea versiunilor, ignorarea fișierelor generate și examinarea i
 
 ## Surse și ajutor
 
-Fișa L6_Laborator_GitHub_pas_cu_pas.docx. Am folosit ajutorul asistentului AI Codex pentru pregătirea fișierelor, executarea comenzilor locale și redactarea raportului.
+
