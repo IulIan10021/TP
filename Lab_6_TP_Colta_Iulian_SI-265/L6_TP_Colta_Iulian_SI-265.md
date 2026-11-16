@@ -29,7 +29,7 @@ Linkurile sunt preluate din materialul de lucru existent; accesibilitatea și pu
 
 **A7. Pull.** Am adăugat în README un rând despre exercițiu și l-am salvat local. Preluarea unei modificări făcute pe GitHub cu `git pull` nu a fost executată.
 
-**A8. Fișierul `.gitignore`.** Am adăugat regulile `.venv/` și `__pycache__/` și le-am salvat într-un commit.
+**A8. Fișierul `.gitignore`.** Am adăugat regulile `../.venv` și `__pycache__/` și le-am salvat într-un commit.
 
 **A9. Log, diff și restore.** Am parcurs comenzile `git log`, `git diff` și `git restore`. Istoricul din depozitul public trebuie verificat după autentificarea pe GitHub.
 
