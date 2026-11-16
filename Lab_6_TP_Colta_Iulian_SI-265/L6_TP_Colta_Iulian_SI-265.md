@@ -10,6 +10,7 @@
 - Depozitul privat al disciplinei: https://github.com/IulIan10021/TP_Colta_Iulian_SI-265
 - Depozitul public `exercitiu-git`: https://github.com/IulIan10021/exercitiu-git
 - Depozitul public `exercitiu-2`: https://github.com/IulIan10021/exercitiu-2
+- 
 
 Linkurile sunt preluate din materialul de lucru existent; accesibilitatea și publicarea actuală trebuie confirmate pe GitHub.
 
